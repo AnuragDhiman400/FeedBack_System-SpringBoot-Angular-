@@ -70,7 +70,7 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 			}
 		}
-  
+   
 		chain.doFilter(request, response);
 	}
 }
