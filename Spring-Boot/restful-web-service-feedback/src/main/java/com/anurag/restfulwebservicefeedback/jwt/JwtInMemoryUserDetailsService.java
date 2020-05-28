@@ -28,7 +28,6 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 		
 		System.out.println(users.getUsername());
 		System.out.println(users.getSection());
-		 
 		
 		optionalusers
 		.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
