@@ -86,7 +86,6 @@ public class FeedbackController {
 //			return ResponseEntity.created(uri).build();
 //
 //		}
-		
 		//Rating controller
 		@PostMapping("/jpa/ratings")
 		public ResponseEntity<Void> newReview(@RequestBody UserRating rating)
