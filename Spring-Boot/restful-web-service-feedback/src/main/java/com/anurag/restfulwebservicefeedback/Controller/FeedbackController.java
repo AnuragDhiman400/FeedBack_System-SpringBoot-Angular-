@@ -102,5 +102,4 @@ public class FeedbackController {
 			return ResponseEntity.created(uri).build();
 
 		}
-		
 }
