@@ -21,7 +21,6 @@ public class TeacherController {
 	@GetMapping("/jpa/user/studentlist/{section}/{category}")
 	public List<User> getStudentList(@PathVariable String section, @PathVariable String category)
 	{
-		
 		return userRepo.findBySectionForTeacher(section, category);
 	}
 }
