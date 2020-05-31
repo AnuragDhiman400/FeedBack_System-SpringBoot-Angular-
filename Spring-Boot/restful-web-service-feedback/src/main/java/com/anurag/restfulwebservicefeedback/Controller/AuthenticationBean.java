@@ -21,5 +21,4 @@ public class AuthenticationBean {
 	public String toString() {
 		return "AuthenticationBean [username=" + username + "]";
 	}
-
 }
