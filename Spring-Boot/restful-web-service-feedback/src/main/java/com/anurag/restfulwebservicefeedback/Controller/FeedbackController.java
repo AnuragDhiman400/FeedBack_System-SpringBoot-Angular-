@@ -40,7 +40,6 @@ public class FeedbackController {
 	@Autowired
 	UserRepository userRepo;
 	
-	
 	@Autowired
 	RatingRepo ratingsRepo;
 	
