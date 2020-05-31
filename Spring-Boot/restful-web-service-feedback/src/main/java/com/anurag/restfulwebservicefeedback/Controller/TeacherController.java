@@ -15,7 +15,6 @@ import com.anurag.restfulwebservicefeedback.Repository.UserRepository;
 @RestController
 public class TeacherController {
 	
-	//Autowired userRepo
 	@Autowired
 	UserRepository userRepo;
 	
