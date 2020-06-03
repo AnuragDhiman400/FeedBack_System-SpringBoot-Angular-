@@ -73,7 +73,6 @@ public class Review {
 		this.question2 = question2;
 	}
 
-
 	public int getQuestion3() {
 		return question3;
 	}
