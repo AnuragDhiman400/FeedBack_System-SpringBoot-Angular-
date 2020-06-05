@@ -100,7 +100,6 @@ public class Review {
 		this.question5 = question5;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
