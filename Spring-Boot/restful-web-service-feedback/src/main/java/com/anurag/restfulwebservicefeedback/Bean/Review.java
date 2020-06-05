@@ -29,7 +29,6 @@ public class Review {
 	protected Review() {
 	}
 
-	
 	public Review(Long id,String username, int question1, int question2, int question3, int question4, int question5) {
 		super();
 		this.id = id;
