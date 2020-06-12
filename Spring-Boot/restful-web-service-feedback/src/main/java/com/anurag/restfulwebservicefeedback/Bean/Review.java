@@ -82,7 +82,6 @@ public class Review {
 		return question3;
 	}
 
-
 	public void setQuestion3(int question3) {
 		this.question3 = question3;
 	}
