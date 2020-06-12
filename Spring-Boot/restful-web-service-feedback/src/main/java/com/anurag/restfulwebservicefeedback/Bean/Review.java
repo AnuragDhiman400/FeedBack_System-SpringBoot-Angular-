@@ -26,7 +26,6 @@ public class Review {
 	private int question4;
 	private int question5;
 	
-
 	protected Review() {
 	}
 
