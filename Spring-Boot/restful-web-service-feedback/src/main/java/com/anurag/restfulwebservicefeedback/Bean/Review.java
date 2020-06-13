@@ -72,7 +72,6 @@ public class Review {
 	}
 
 
-
 	public int getQuestion2() {
 		return question2;
 	}
