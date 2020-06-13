@@ -77,7 +77,6 @@ public class Review {
 	}
 
 
-
 	public void setQuestion2(int question2) {
 		this.question2 = question2;
 	}
