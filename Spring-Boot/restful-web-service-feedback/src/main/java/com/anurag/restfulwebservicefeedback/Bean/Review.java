@@ -59,8 +59,6 @@ public class Review {
 		this.username = username;
 	}
 
-
-
 	public int getQuestion1() {
 		return question1;
 	}
