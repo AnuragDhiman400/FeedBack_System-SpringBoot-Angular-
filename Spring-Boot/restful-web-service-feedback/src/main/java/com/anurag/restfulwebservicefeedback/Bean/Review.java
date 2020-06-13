@@ -63,8 +63,6 @@ public class Review {
 		return question1;
 	}
 
-
-
 	public void setQuestion1(int question1) {
 		this.question1 = question1;
 	}
