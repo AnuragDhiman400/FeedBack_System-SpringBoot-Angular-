@@ -55,7 +55,6 @@ public class Review {
 	}
 
 
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
