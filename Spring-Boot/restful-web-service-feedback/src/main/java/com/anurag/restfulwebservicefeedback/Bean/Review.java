@@ -103,7 +103,6 @@ public class Review {
 	}
 
 
-
 	public void setQuestion4(int question4) {
 		this.question4 = question4;
 	}
