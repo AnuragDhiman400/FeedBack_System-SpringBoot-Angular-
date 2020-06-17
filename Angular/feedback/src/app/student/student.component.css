@@ -1,0 +1,61 @@
+        .space {
+            margin-top: 25px;
+        }
+        
+        .sub-menu {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: inherit;
+        }
+        
+        .example-form {
+            min-width: 150px;
+            max-width: 500px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .example-full-width {
+            width: 100%;
+        }
+        
+        .login {
+            display: block;
+            margin: auto;
+        }
+        
+        .mat-tab-group {
+            margin-bottom: 48px;
+        }
+        
+        .mat-form-field+.mat-form-field {
+            margin-left: 8px;
+        }
+        
+        .tab {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+        }
+        
+        mat-grid-tile {
+            background: lightblue;
+        }
+        
+        .grid {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+        }
+        
+        .images {
+            width: 50%;
+            background-size: contain;
+        }
+        
+        .head_text {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
