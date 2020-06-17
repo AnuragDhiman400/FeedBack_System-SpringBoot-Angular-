@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { LogoutComponent } from './logout/logout.component';
+import { HttpIntercepterService } from './service/http/http-intercepter.service';
 
 
 
@@ -38,7 +40,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AdminComponent,
     TeacherComponent,
     StudentComponent,
-    UserComponent
+    UserComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatGridListModule
     
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

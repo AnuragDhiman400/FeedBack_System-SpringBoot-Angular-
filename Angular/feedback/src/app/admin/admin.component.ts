@@ -59,13 +59,13 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  this.getAllUsers();
+  this.refreshList();
   }
 
   
   
 
-  getAllUsers()
+  refreshList()
   {
 
     this.userService.retrieveAllList().subscribe(

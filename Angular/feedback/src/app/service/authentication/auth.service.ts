@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { API_URL } from 'app.const';
 
 export const AUTHENTICATED_USER='authenticateUser'
 export const TOKEN='token'
@@ -13,7 +14,28 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
 
+  JWTAuth(username, password)
+  {
+   
   
+    return this.http.post<any>(
+    `${API_URL}/authenticate`,{
+      username,
+      password
+    }).pipe(
+  
+      map(
+        data => {
+          sessionStorage.setItem(AUTHENTICATED_USER,username);
+          sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
+          return data;
+        }
+      )
+  
+    );
+   
+    //console.log("Execute the Hello world Bean service")
+  }
 
   authenticateBasicAuth(username,password)
   {
@@ -39,12 +61,14 @@ export class AuthService {
   authenticate(role,username, password,email)
   {
 
+    console.log('before'+this.isUserLoggedIn());
     if(role==='admin' && username === 'anurag' && password === '123' && email==='a@gmail.com')
     {
 
+      
       console.log('user logged in');
-
       sessionStorage.setItem(AUTHENTICATED_USER,username);
+      console.log('after'+this.isUserLoggedIn());
       return true;
 
     }
@@ -68,13 +92,14 @@ export class AuthService {
   isUserLoggedIn()
   {
     let user = sessionStorage.getItem(AUTHENTICATED_USER);
-    return!(user === null);
+    return !(user === null);
   }
 
 
   logout()
   {
     sessionStorage.removeItem(AUTHENTICATED_USER);
+  sessionStorage.removeItem(TOKEN);
   }
 
 

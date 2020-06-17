@@ -45,23 +45,23 @@ export class LoginComponent implements OnInit {
   }
 
 
-  isHomeRoute() {
+  // isHomeRoute() {
 
-    if (this.router.url === '/')
+  //   if (this.router.url === '/')
 
-      return false;
-
-
-    return true;
+  //     return false;
 
 
-  }
+  //   return true;
+
+
+  // }
 
   basicAuth()
   {
     console.log('works');
 
-    this.auth.authenticateBasicAuth(this.username, this.password)
+    this.auth.JWTAuth(this.username, this.password)
     .subscribe(
 
       data=> {
