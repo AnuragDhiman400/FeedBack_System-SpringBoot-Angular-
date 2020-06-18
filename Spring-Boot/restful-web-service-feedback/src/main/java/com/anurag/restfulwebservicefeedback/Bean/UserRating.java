@@ -110,5 +110,4 @@ public class UserRating {
 	public void setSection(String section) {
 		this.section = section;
 	}
-
 }
