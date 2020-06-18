@@ -70,7 +70,15 @@ export class AdminComponent implements OnInit {
 
     this.userService.retrieveAllList().subscribe(
 
-      response => {this.dataSource = response;}
+      response => {this.dataSource = response;
+        console.log('data after')
+        for(var i = 0; i < this.dataSource.length; i++){
+         
+          console.log( this.dataSource[i].category);
+        }
+    
+    
+    }
      
 
     )
@@ -87,7 +95,7 @@ export class AdminComponent implements OnInit {
 
         console.log(response)
         this.message = `Delete of User ${user_id} successfull`
-        this.getAllUsers();
+        this.refreshList();
 
       }
 

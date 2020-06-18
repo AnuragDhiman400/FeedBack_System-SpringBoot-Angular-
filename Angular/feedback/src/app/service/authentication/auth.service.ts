@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { API_URL } from 'app.const';
+import { AdminDataService } from '../data/admin-data.service';
+import { User } from 'src/app/admin/admin.component';
+import { Router } from '@angular/router';
 
 export const AUTHENTICATED_USER='authenticateUser'
 export const TOKEN='token'
@@ -11,7 +14,12 @@ export const TOKEN='token'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  datasource : User[]
+ inValid:boolean
+
+  constructor(private http:HttpClient,
+    private router: Router,
+    private userService:AdminDataService) { }
 
 
   JWTAuth(username, password)
@@ -36,6 +44,8 @@ export class AuthService {
    
     //console.log("Execute the Hello world Bean service")
   }
+
+
 
   authenticateBasicAuth(username,password)
   {
