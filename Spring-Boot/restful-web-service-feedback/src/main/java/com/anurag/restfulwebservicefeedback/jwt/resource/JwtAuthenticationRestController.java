@@ -23,9 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anurag.restfulwebservicefeedback.jwt.JwtTokenUtil;
 import com.anurag.restfulwebservicefeedback.jwt.JwtUserDetails;
-
-@RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RestController
 public class JwtAuthenticationRestController {
 
 	@Value("${jwt.http.request.header}")

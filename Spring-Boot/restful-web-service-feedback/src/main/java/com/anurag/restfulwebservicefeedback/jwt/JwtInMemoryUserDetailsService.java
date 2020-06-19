@@ -26,6 +26,7 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 		User users = optionalusers.get();
 		
 		System.out.println(users.getUsername());
+		System.out.println(users.getSection());
 		 
 		
 		optionalusers
