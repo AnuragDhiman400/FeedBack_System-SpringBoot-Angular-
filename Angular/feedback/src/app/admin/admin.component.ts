@@ -59,17 +59,26 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+<<<<<<< HEAD
   this.refreshList();
+=======
+  this.getAllUsers();
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
   }
 
   
   
 
+<<<<<<< HEAD
   refreshList()
+=======
+  getAllUsers()
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
   {
 
     this.userService.retrieveAllList().subscribe(
 
+<<<<<<< HEAD
       response => {this.dataSource = response;
         console.log('data after')
         for(var i = 0; i < this.dataSource.length; i++){
@@ -79,6 +88,9 @@ export class AdminComponent implements OnInit {
     
     
     }
+=======
+      response => {this.dataSource = response;}
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
      
 
     )
@@ -95,7 +107,11 @@ export class AdminComponent implements OnInit {
 
         console.log(response)
         this.message = `Delete of User ${user_id} successfull`
+<<<<<<< HEAD
         this.refreshList();
+=======
+        this.getAllUsers();
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
       }
 

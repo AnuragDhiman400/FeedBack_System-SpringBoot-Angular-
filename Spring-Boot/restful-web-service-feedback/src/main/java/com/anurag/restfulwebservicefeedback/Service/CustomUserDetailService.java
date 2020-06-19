@@ -1,4 +1,4 @@
-package com.anurag.Service;
+package com.anurag.restfulwebservicefeedback.Service;
 
 import java.util.Optional;
 
@@ -20,9 +20,7 @@ public class CustomUserDetailService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //		// TODO Auto-generated method stub
-		Optional<User> optionalusers= userRepo.findByUsername(username);
-		
-		 
+		Optional<User> optionalusers= userRepo.findByUsername(username); 
 		
 		optionalusers
 		.orElseThrow(() -> new UsernameNotFoundException("Username not found"));

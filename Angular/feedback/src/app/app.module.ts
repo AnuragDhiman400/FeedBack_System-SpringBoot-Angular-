@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+<<<<<<< HEAD
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+=======
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,8 +29,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+<<<<<<< HEAD
 import { LogoutComponent } from './logout/logout.component';
 import { HttpIntercepterService } from './service/http/http-intercepter.service';
+=======
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
 
 
@@ -40,8 +47,12 @@ import { HttpIntercepterService } from './service/http/http-intercepter.service'
     AdminComponent,
     TeacherComponent,
     StudentComponent,
+<<<<<<< HEAD
     UserComponent,
     LogoutComponent
+=======
+    UserComponent
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
   ],
   imports: [
     BrowserModule,
@@ -64,7 +75,11 @@ import { HttpIntercepterService } from './service/http/http-intercepter.service'
     MatGridListModule
     
   ],
+<<<<<<< HEAD
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}],
+=======
+  providers: [],
+>>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
   bootstrap: [AppComponent]
 })
 export class AppModule { }

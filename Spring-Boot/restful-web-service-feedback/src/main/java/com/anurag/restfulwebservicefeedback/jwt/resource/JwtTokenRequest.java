@@ -8,14 +8,16 @@ public class JwtTokenRequest implements Serializable {
 
 	private String username;
 	private String password;
+	private String section;
 
 	public JwtTokenRequest() {
 		super();
 	}
 
-	public JwtTokenRequest(String username, String password) {
+	public JwtTokenRequest(String username, String password, String section) {
 		this.setUsername(username);
 		this.setPassword(password);
+		this.setSection(section);
 	}
 
 	public String getUsername() {
@@ -33,4 +35,14 @@ public class JwtTokenRequest implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+	
+	
 }
