@@ -23,8 +23,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 import com.anurag.restfulwebservicefeedback.Repository.UserRepository;
+import com.anurag.restfulwebservicefeedback.Service.CustomUserDetailService;
 import com.anurag.restfulwebservicefeedback.Bean.User;;
 
 
@@ -35,6 +37,9 @@ public class UserController {
 	@Autowired
 	UserRepository userRepo;
 	
+	
+	@Autowired
+	CustomUserDetailService customuser;
 
 	
 	@GetMapping("/secured/login")
@@ -59,11 +64,24 @@ public class UserController {
 		return userRepo.findAll();
 		
 	}
+	
+	@GetMapping("/jpa/user/{username}")
+	public User getByUsername(@PathVariable String username)
+	{	
+		return (User) customuser.loadUserByUsername(username);	
+	}
+	
 	@GetMapping(path = "/basicauth")
 	public AuthenticationBean helloWorldBean() {
 		//throw new RuntimeException("Some Error has Happened! Contact Support at ***-***");
 		return new AuthenticationBean("You are authenticated");
 	}	
+//	
+//	@GetMapping("/jpa/users/{username}")
+//	public List<User> getoneUser(@PathVariable String username)
+//	{
+//		return usernameRepo.findByUsername(username);	
+//	}
 	
 	
 	@GetMapping("/jpa/users/{id}")
