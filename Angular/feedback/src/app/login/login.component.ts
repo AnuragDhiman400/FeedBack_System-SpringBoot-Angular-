@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/authentication/auth.service';
-<<<<<<< HEAD
 import { User } from '../admin/admin.component';
 import { AdminDataService } from '../service/data/admin-data.service';
 import * as jwt_decode from "jwt-decode";
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
 interface Role {
   value: string;
@@ -14,12 +11,8 @@ interface Role {
 }
 
 
-<<<<<<< HEAD
 export const AUTHENTICATED_USER='authenticateUser'
 export const TOKEN='token'
-=======
-
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 export class SelectOverviewExample {
 
 }
@@ -40,12 +33,9 @@ export class LoginComponent implements OnInit {
   email: string=''
   invalidLogin = false
   errorMessage = 'Invalid User'
-<<<<<<< HEAD
   datasource : User[]
   user: User
   user_id: number
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
   roles: Role[] = [
     {value: 'admin', viewValue: 'Admin'},
@@ -56,10 +46,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-<<<<<<< HEAD
     private userService:AdminDataService,
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
     private auth:AuthService
   ) { }
 
@@ -67,7 +54,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-<<<<<<< HEAD
   // isHomeRoute() {
 
   //   if (this.router.url === '/')
@@ -79,25 +65,11 @@ export class LoginComponent implements OnInit {
 
 
   // }
-=======
-  isHomeRoute() {
-
-    if (this.router.url === '/')
-
-      return false;
-
-
-    return true;
-
-
-  }
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 
   basicAuth()
   {
     console.log('works');
 
-<<<<<<< HEAD
     this.auth.JWTAuth(this.username, this.password)
     .subscribe(
       
@@ -136,26 +108,11 @@ export class LoginComponent implements OnInit {
 
   
 
-=======
-    this.auth.authenticateBasicAuth(this.username, this.password)
-    .subscribe(
-
-      data=> {
-        console.log(data)
-        console.log(this.username,this.password)
-        this.router.navigate(['admin']);
-
-        this.invalidLogin = false
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
       },
     error=>
     {
 console.log(error)
-<<<<<<< HEAD
 console.log("errror" +this.username,this.password)
-=======
-console.log("errro" +this.username,this.password)
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 this.invalidLogin = true
     })
     
@@ -163,11 +120,8 @@ this.invalidLogin = true
 
   }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
   authentication()
   {
     console.log('works');
