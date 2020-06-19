@@ -1,14 +1,11 @@
-insert into USER(user_id,username, email,password,category,section)
-values(10001,'sunny', 'anurag@gmail', 'abc', 'student', 'A');
+insert into USER(user_id, username, email,password,category,section)
+values(10001,'anurag1', 'anurag@gmail', 'd', 'admin', '');
 
 insert into USER(user_id, username, email,password,category,section)
-values(10002,'anurag1', 'anurag@gmail', 'abcd', 'student', 'B');
+values(10002,'anurag2', 'anuragdhiman@gmail', 'd', 'teacher', 'C');
 
 insert into USER(user_id, username, email,password,category,section)
-values(10003,'anurag2', 'anuragdhiman@gmail', 'd', 'teacher', 'C');
-
-insert into USER(user_id, username, email,password,category,section)
-values(10004,'anurag3', 'anuragdhiman@gmail', 'd', 'teacher', 'D');
+values(10003,'anurag3', 'anuragdhiman@gmail', 'd', 'student', 'D');
 
 
 

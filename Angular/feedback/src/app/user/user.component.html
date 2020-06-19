@@ -1,0 +1,55 @@
+<div class="space">
+</div>
+
+<mat-toolbar color="primary">
+
+
+    <div class="sub-menu">
+
+        <Span>User Data</Span>
+    </div>
+</mat-toolbar>
+
+<div class="space">
+</div>
+
+<form class="example-form" #todoForm="ngForm">
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Your Full Name" value="" [(ngModel)]="user.username" #description="ngModel" name="username">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email-id</mat-label>
+        <input matInput placeholder="Your Email-Address" value="" [(ngModel)]="user.email" name="email">
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" type="password" placeholder="Your Secret code..." value="" [(ngModel)]="user.password" name="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Section</mat-label>
+        <input matInput placeholder="Your Section" value="" [(ngModel)]="user.section" name="section">
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Category</mat-label>
+        <input matInput placeholder="Write your category" value="" [(ngModel)]="user.category" name="category">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary" class="update" (click)="updateUser()">Submit</button>
+
+</form>
+
+
+<div class="space">
+</div>

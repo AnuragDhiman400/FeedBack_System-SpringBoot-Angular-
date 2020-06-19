@@ -1,0 +1,51 @@
+<div class="space">
+</div>
+<mat-toolbar color="primary">
+
+
+    <div class="sub-menu">
+
+        <Span>{{message}}</Span>
+    </div>
+
+
+
+
+</mat-toolbar>
+<div class="space">
+</div>
+<div class="head_text">
+    <h1>List of Teachers</h1>
+</div>
+
+<div class="tab">
+
+    <div class="space">
+    </div>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let list of teacherList">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{list.username}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Type your name and age
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <mat-label>First name</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Age</mat-label>
+                <input matInput type="number" min="1">
+            </mat-form-field>
+        </mat-expansion-panel>
+
+    </mat-accordion>
+
+</div>
+<div class="space">
+</div>
