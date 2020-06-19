@@ -29,10 +29,19 @@ deleteUser(user_id)
 
 }
 
+//Get user by user_id
 getUser(user_id)
 {
 
   return this.http.get<User>(`http://localhost:8080/jpa/users/${user_id}`);
+
+}
+
+//Get user by username
+getUserByusername(username)
+{
+
+  return this.http.get<User>(`http://localhost:8080/jpa/user/${username}`);
 
 }
 

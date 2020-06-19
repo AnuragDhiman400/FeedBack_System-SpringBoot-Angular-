@@ -75,17 +75,35 @@ export class LoginComponent implements OnInit {
 
       data=> {this.datasource = data
         console.log(this.username,this.password)
-       // console.log(this.datasource[2].user_id);
+       
         console.log(data.token);
       console.log('Decodeed');
       let usernameJWT = jwt_decode(data.token);
       console.log(usernameJWT);
 
-      console.log(this.userService.getUser(usernameJWT.sub).subscribe(
+     this.userService.getUserByusername(usernameJWT.sub).subscribe(
         data => { this.user = data 
         console.log(this.user);
+
+        if(this.user.category === 'admin')
+        {
+          this.router.navigate(['admin']); 
         }
-      ));
+        else if(this.user.category === 'student')
+        {
+          this.router.navigate(['student']); 
+        }
+        else if(this.user.category === 'teacher')
+        {
+          this.router.navigate(['teacher']); 
+        }
+        else{
+          sessionStorage.removeItem(AUTHENTICATED_USER);
+          sessionStorage.removeItem(TOKEN);
+        }
+
+        }
+      );
 
   
 
@@ -98,40 +116,6 @@ this.invalidLogin = true
     })
     
       
-
-  }
-
-  
-  sectionVerification()
-  {
-
-    this.userService.retrieveAllList().subscribe(
-
-      data => {this.datasource = data;
-        for(var i = 0; i < this.datasource.length; i++){   
-          console.log('before'+this.selectedRole+'and'+this.datasource[i].category)
-         if(this.selectedRole === this.datasource[i].category)
-        {
-          console.log('after'+this.selectedRole+this.datasource[i].category)
-          this.router.navigate(['admin']); 
-        
-        }
-        else{
-        
-          sessionStorage.removeItem(AUTHENTICATED_USER);
-  sessionStorage.removeItem(TOKEN);
-  
-        
-        }
-        }
-    },
-    error=>
-    {
-      console.log(error)
-    }
-     
-
-    )
 
   }
 
