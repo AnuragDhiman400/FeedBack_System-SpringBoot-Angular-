@@ -13,6 +13,7 @@ interface Role {
   viewValue: string;
 }
 
+
 <<<<<<< HEAD
 export const AUTHENTICATED_USER='authenticateUser'
 export const TOKEN='token'
