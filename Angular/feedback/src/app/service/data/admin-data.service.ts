@@ -29,10 +29,7 @@ deleteUser(user_id)
 
 }
 
-<<<<<<< HEAD
 //Get user by user_id
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 getUser(user_id)
 {
 
@@ -40,7 +37,6 @@ getUser(user_id)
 
 }
 
-<<<<<<< HEAD
 //Get user by username
 getUserByusername(username)
 {
@@ -49,8 +45,6 @@ getUserByusername(username)
 
 }
 
-=======
->>>>>>> 2ba7b30f32f462a51648b23ce8c73a757eec7246
 updateUser(user_id, user)
 {
 
