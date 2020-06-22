@@ -4,7 +4,6 @@ public class AuthenticationBean {
 	private String username;
 
 
-
 	public AuthenticationBean(String username) {
 		super();
 		this.username = username;
