@@ -5,7 +5,13 @@ insert into USER(user_id, username, email,password,category,section)
 values(10002,'anurag2', 'anuragdhiman@gmail', 'd', 'teacher', 'C');
 
 insert into USER(user_id, username, email,password,category,section)
-values(10003,'anurag3', 'anuragdhiman@gmail', 'd', 'student', 'D');
+values(10003,'anurag3', 'anuragdhiman@gmail', 'd', 'teacher', 'C');
+
+insert into USER(user_id, username, email,password,category,section)
+values(10004,'anurag4', 'anuragdhiman@gmail', 'd', 'student', 'D');
+
+insert into USER(user_id, username, email,password,category,section)
+values(10005,'anurag5', 'anuragdhiman@gmail', 'd', 'student', 'D');
 
 
 
