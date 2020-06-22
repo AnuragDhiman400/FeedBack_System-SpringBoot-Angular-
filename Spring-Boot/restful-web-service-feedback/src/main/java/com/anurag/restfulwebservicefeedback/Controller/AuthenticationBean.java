@@ -19,7 +19,6 @@ public class AuthenticationBean {
 		this.username = username;
 	}
 
-
 	@Override
 	public String toString() {
 		return "AuthenticationBean [username=" + username + "]";
