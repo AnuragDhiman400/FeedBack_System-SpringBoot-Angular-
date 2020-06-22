@@ -74,7 +74,6 @@ public class FeedbackController {
 				@PathVariable String section, @PathVariable long id){
 			reviewRepository.deleteById(id);
 			return ResponseEntity.noContent().build();
-	
 		}
 //		@PostMapping("/jpa/reviewsubmit")
 //		public ResponseEntity<Void> newReview(@RequestBody Review review)
