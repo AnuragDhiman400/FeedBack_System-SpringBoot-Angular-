@@ -20,7 +20,6 @@ public class AuthenticationBean {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "AuthenticationBean [username=" + username + "]";
