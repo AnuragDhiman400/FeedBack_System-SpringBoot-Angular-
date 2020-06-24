@@ -26,5 +26,4 @@ public class AuthenticationBean {
 		return "AuthenticationBean [username=" + username + "]";
 	}
 
-
 }
