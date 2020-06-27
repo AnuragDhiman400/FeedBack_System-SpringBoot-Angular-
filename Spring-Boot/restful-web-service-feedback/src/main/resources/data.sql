@@ -38,7 +38,10 @@ insert into REVIEW(id, username,question1,question2,question3,question4,question
 values(2, 'anurag2',2,3,1,4,2);
 
 insert into REVIEW(id,username,question1,question2,question3,question4,question5)
-values(3, 'anurag3',3,2,2,2,2);
+values(3, 'anurag3',50,2,2,2,2);
+
+insert into REVIEW(id,username,question1,question2,question3,question4,question5)
+values(6, 'anurag3',3,2,2,2,2);
 
 insert into REVIEW(id, username,question1,question2,question3,question4,question5)
 values(4, 'anurag4',1,3,5,1,2);
