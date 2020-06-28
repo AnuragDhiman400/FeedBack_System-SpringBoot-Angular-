@@ -15,7 +15,6 @@ public class AuthenticationBean {
 	}
 
 
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
