@@ -25,5 +25,4 @@ public class TeacherController {
 		
 		return userRepo.findBySectionForTeacher(section, category);
 	}
-
 }
