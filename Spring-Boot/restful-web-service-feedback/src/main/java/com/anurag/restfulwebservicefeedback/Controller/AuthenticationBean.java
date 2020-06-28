@@ -10,7 +10,6 @@ public class AuthenticationBean {
 		this.username = username;
 	}
 
-
 	public String getUsername() {
 		return username;
 	}
