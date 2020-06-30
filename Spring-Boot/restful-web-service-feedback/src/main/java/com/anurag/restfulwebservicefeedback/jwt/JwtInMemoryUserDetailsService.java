@@ -53,9 +53,6 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 	
 	
 	
-	
-	
-	
 /*	
 //Working Code for JWT authentication with username	
 //	@Override
