@@ -36,7 +36,6 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 		return optionalusers
 		.map( JwtUserDetails::new).get();
 		
-
 	}
 	
 //	@Override
