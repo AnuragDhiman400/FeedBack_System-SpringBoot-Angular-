@@ -15,9 +15,10 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate:[RouteGuardService] },
-  { path: 'teacher', component: TeacherComponent, canActivate:[RouteGuardService] },
-  { path: 'student', component: StudentComponent, canActivate:[RouteGuardService] },
+  { path: 'teacher/:section/:category/:username', component: TeacherComponent, canActivate:[RouteGuardService] },
+  { path: 'student/:section/:category', component: StudentComponent, canActivate:[RouteGuardService] },
   { path: 'user/:user_id', component: UserComponent , canActivate:[RouteGuardService]},
+  { path: 'chart/:username', component: UserComponent , canActivate:[RouteGuardService]},
   { path: 'logout', component: LogoutComponent}
 ];
 
