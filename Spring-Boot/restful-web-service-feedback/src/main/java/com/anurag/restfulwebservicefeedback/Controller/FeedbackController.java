@@ -44,8 +44,6 @@ public class FeedbackController {
 	@Autowired
 	RatingRepo ratingsRepo;
 	
-	
-	
 //	@GetMapping("/user/{section}/feedback")
 //	public List<Review> getAllFeedback(@PathVariable String section)
 //	{
