@@ -22,21 +22,50 @@ export class AuthService {
     private userService:AdminDataService) { }
 
 
-  JWTAuth(username, password)
+  JWTAuth(username, password, category)
   {
    
   
     return this.http.post<any>(
     `${API_URL}/authenticate`,{
       username,
-      password
+      password,
+      category
     }).pipe(
   
       map(
         data => {
+
+          this.datasource = data;
+          
+          if(data.UserData.category === 'admin')
+          {
+            console.log('This is coming from auth.service');
+            console.log(this.datasource);
+            this.router.navigate(['admin']);
+          }
+
+          if(data.UserData.category === 'teacher')
+          {
+            console.log('This is coming from teacher service');
+            console.log(this.datasource);
+            this.router.navigate(['teacher']);
+          }
+
+          
+          if(data.UserData.category === 'student')
+          {
+            console.log('This is coming from student service');
+            console.log(this.datasource);
+            this.router.navigate(['student']);
+          }
+          
           sessionStorage.setItem(AUTHENTICATED_USER,username);
           sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
           return data;
+
+          
+
         }
       )
   
