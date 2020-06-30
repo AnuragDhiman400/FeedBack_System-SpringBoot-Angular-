@@ -92,7 +92,6 @@ public class UserController {
 		
 	}
 	
-	
 	@DeleteMapping("/jpa/users/{id}")
 	public ResponseEntity<Void> deleteUser(@PathVariable long id)
 	{
