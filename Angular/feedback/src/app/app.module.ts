@@ -27,6 +27,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpIntercepterService } from './service/http/http-intercepter.service';
+// import { ChartComponent } from './chart/chart.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StarComponent } from './star/star.component';
+import {MatDividerModule} from '@angular/material/divider';
+
+
 
 
 
@@ -41,7 +47,9 @@ import { HttpIntercepterService } from './service/http/http-intercepter.service'
     TeacherComponent,
     StudentComponent,
     UserComponent,
-    LogoutComponent
+    LogoutComponent,
+    // ChartComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +69,9 @@ import { HttpIntercepterService } from './service/http/http-intercepter.service'
     MatListModule,
     MatTabsModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    NgbModule,
+    MatDividerModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}],
