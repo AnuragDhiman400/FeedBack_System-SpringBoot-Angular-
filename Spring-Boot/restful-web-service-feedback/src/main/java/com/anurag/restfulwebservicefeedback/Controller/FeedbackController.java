@@ -93,6 +93,7 @@ public class FeedbackController {
 //
 //		}
 		
+		//Rating controller
 		@PostMapping("/jpa/ratings")
 		public ResponseEntity<Void> newReview(@RequestBody UserRating rating)
 		{
