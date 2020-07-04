@@ -98,4 +98,5 @@ public class JwtTokenUtil implements Serializable {
 	private Date calculateExpirationDate(Date createdDate) {
 		return new Date(createdDate.getTime() + expiration * 1000);
 	}
+	
 }
