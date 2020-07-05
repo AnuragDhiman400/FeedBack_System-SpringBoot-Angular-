@@ -32,9 +32,6 @@
 //      dataQues1:number
 //      username: string
      
-     
-    
-    
 
 //   constructor(
 //     private teacherService : TeacherService,
