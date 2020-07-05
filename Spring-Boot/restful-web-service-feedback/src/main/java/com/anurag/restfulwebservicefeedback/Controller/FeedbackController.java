@@ -53,7 +53,6 @@ public class FeedbackController {
 //		return reviewRepository.findBySection(section);
 //	}
 //	
-	
 	@GetMapping("/jpa/user/feedback/ratings/{username}/{section}")
 	public List<UserRating> getAllusernames(@PathVariable String username,@PathVariable String section)
 	{	
