@@ -18,7 +18,6 @@ public class TeacherController {
 	@Autowired
 	UserRepository userRepo;
 	
-	
 	@GetMapping("/jpa/user/studentlist/{section}/{category}")
 	public List<User> getStudentList(@PathVariable String section, @PathVariable String category)
 	{
