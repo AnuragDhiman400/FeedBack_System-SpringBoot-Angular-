@@ -24,7 +24,6 @@ export class AuthService {
 
   JWTAuth(username, password, category)
   {
-   
   
     return this.http.post<any>(
     `${API_URL}/authenticate`,{
