@@ -1,5 +1,8 @@
+
+
 package com.anurag.restfulwebservicefeedback.jwt.resource;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anurag.restfulwebservicefeedback.Bean.User;
+import com.anurag.restfulwebservicefeedback.Repository.UserRepository;
 import com.anurag.restfulwebservicefeedback.jwt.JwtTokenUtil;
 import com.anurag.restfulwebservicefeedback.jwt.JwtUserDetails;
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class JwtAuthenticationRestController {
 
 	@Value("${jwt.http.request.header}")
@@ -39,18 +45,30 @@ public class JwtAuthenticationRestController {
 	@Autowired
 	private UserDetailsService jwtInMemoryUserDetailsService;
 
+	@Autowired
+	private UserRepository userRepo;
+	
 	@RequestMapping(value = "${jwt.get.token.uri}", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtTokenRequest authenticationRequest)
 			throws AuthenticationException {
 
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword(), authenticationRequest.getCategory());
 
 		final UserDetails userDetails = jwtInMemoryUserDetailsService
 				.loadUserByUsername(authenticationRequest.getUsername());
-
+		
+		final User user = userRepo.findUser(authenticationRequest.getUsername(), authenticationRequest.getPassword(), authenticationRequest.getCategory());
 		final String token = jwtTokenUtil.generateToken(userDetails);
-
-		return ResponseEntity.ok(new JwtTokenResponse(token));
+		final HashMap<String, Object> map = new HashMap<>();
+		
+                 if (user == null) {
+			return new ResponseEntity<Object>(HttpStatus.UNAUTHORIZED);
+		}
+		
+		map.put("token", new JwtTokenResponse(token).getToken());
+		map.put("UserData", user);
+		
+		return ResponseEntity.ok(map);
 	}
 
 	@RequestMapping(value = "${jwt.refresh.token.uri}", method = RequestMethod.GET)
@@ -73,10 +91,11 @@ public class JwtAuthenticationRestController {
 		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
 	}
 
-	private void authenticate(String username, String password) {
+	private void authenticate(String username, String password, String category) {
 		Objects.requireNonNull(username);
 		Objects.requireNonNull(password);
-
+		Objects.requireNonNull(category);
+		System.out.println("=================HERE=============");
 		try {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		} catch (DisabledException e) {
