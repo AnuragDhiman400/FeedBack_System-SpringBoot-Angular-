@@ -66,8 +66,6 @@ export class AuthService {
         }
         )
     );
-   
-    //console.log("Execute the Hello world Bean service")
   }
 
 
