@@ -68,8 +68,6 @@ export class AuthService {
     );
   }
 
-
-
   authenticateBasicAuth(username,password)
   {
     let basicAuthHeaderString= 'Basic ' + window.btoa(username + ':' + password);
