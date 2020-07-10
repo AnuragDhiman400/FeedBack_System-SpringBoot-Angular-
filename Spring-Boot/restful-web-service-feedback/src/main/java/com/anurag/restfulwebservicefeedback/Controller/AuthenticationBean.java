@@ -11,7 +11,6 @@ public class AuthenticationBean {
 	}
 
 
-
 	public String getUsername() {
 		return username;
 	}
