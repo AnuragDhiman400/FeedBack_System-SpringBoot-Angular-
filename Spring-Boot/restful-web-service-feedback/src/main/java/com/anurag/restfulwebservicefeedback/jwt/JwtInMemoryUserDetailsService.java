@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 import com.anurag.restfulwebservicefeedback.Bean.CustomUserDetails;
 import com.anurag.restfulwebservicefeedback.Bean.User;
 import com.anurag.restfulwebservicefeedback.Repository.UserRepository;
@@ -37,6 +38,46 @@ public class JwtInMemoryUserDetailsService implements UserDetailsService {
 		
 
 	}
+	
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		Optional<JwtUserDetails> findFirst = inMemoryUserList.stream()
+//				.filter(user -> user.getUsername().equals(username)).findFirst();
+//
+//		if (!findFirst.isPresent()) {
+//			throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
+//		}
+//
+//		return findFirst.get();
+//	}
+	
+	
+	
+	
+	
+	
+/*	
+//Working Code for JWT authentication with username	
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+////		// TODO Auto-generated method stub
+//		Optional<User> optionalusers= userRepo.findByUsername(username);
+//		User users = optionalusers.get();
+//		
+//		System.out.println(users.getUsername());
+//		System.out.println(users.getSection());
+//		 
+//		
+//		optionalusers
+//		.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
+//		
+//		return optionalusers
+//		.map( JwtUserDetails::new).get();
+//		
+//
+//	}
+	*/
+	
 
 //	static List<JwtUserDetails> inMemoryUserList = new ArrayList<>();
 //

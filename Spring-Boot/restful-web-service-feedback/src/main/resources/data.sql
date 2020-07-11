@@ -31,20 +31,24 @@ values(10009,'anurag8', 'anuragdhiman@gmail', 'd', 'student', 'A');
 
 
 --Insert into Review table
-insert into REVIEW(id,username,question1,question2,question3,question4,question5)
-values(1, 'anurag1',1,2,1,5,4);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(3003,'anurag1',1,2,1,5,4,'He is awesome','A');
 
-insert into REVIEW(id, username,question1,question2,question3,question4,question5)
-values(2, 'anurag2',2,3,1,4,2);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(3002, 'anurag2',2,3,1,4,2,'Great work','B');
 
-insert into REVIEW(id,username,question1,question2,question3,question4,question5)
-values(3, 'anurag3',50,2,2,2,2);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(3001, 'anurag3',50,2,2,2,2,'Does great work!!','C');
 
-insert into REVIEW(id,username,question1,question2,question3,question4,question5)
-values(6, 'anurag3',3,2,2,2,2);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(6001, 'anurag3',3,2,2,2,2,'Great','D');
 
-insert into REVIEW(id, username,question1,question2,question3,question4,question5)
-values(4, 'anurag4',1,3,5,1,2);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(4001, 'anurag4',1,3,5,1,2,'Intelligent','A');
 
-insert into REVIEW(id,username,question1,question2,question3,question4,question5)
-values(5, 'anurag5',5,4,3,2,1);
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(5001, 'anurag5',5,4,3,2,1,'Brilliant','B');
+
+insert into User_Rating(rating_id,username,question1,question2,question3,question4,question5,review,section)
+values(6001, 'anurag5',5,4,3,2,1,'Great','D');
+
