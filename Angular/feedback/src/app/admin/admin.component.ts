@@ -60,6 +60,8 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
   this.refreshList();
+  console.log('This is coming from Admincomponent ');
+  console.log(this.dataSource)
   }
 
   

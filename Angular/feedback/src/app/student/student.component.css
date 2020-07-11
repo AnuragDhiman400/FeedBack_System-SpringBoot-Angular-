@@ -59,3 +59,17 @@
             margin-right: auto;
             text-align: center;
         }
+        
+        .dropdown {
+            text-align: -webkit-center;
+        }
+        
+        .container {
+            text-align: left;
+            /* padding-bottom: 80px; */
+        }
+        
+        .feedbackTextArea {
+            margin-bottom: 80px;
+        }
+        /* This is styling for star */

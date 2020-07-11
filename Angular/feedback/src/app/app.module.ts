@@ -31,6 +31,8 @@ import { HttpIntercepterService } from './service/http/http-intercepter.service'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StarComponent } from './star/star.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
 
@@ -49,7 +51,8 @@ import {MatDividerModule} from '@angular/material/divider';
     UserComponent,
     LogoutComponent,
     // ChartComponent,
-    StarComponent
+    StarComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatExpansionModule,
     MatGridListModule,
     NgbModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSnackBarModule
     
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}],

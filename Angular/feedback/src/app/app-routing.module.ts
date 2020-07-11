@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { UserComponent } from './user/user.component';
 import { LogoutComponent } from './logout/logout.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'student/:section/:category', component: StudentComponent, canActivate:[RouteGuardService] },
   { path: 'user/:user_id', component: UserComponent , canActivate:[RouteGuardService]},
   { path: 'chart/:username', component: UserComponent , canActivate:[RouteGuardService]},
-  { path: 'logout', component: LogoutComponent}
+  { path: 'logout', component: LogoutComponent},
+  { path: 'snackbar', component: SnackbarComponent}
 ];
 
 @NgModule({

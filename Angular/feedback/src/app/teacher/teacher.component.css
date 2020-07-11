@@ -1,10 +1,14 @@
-.space
-{
+/* CSS */
+
+.space {
     margin-top: 25px;
 }
 
-.sub-menu
-{
+.morespace {
+    margin-top: 50px;
+}
+
+.sub-menu {
     margin-left: auto;
     margin-right: auto;
     font-size: inherit;
@@ -16,14 +20,50 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
+}
 
-  .login
-  {
+.example-full-width {
+    width: 100%;
+}
+
+.login {
     display: block;
     margin: auto;
-  }
+}
+
+table {
+    width: 80%;
+    justify-content: center;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    padding: 0;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    text-align: center;
+}
+
+.container {
+    text-align: -webkit-center;
+}
+
+@media (min-width: 768px) {
+    .h-md-100 {
+        height: 100vh;
+    }
+}
+
+.btn-round {
+    border-radius: 30px;
+}
+
+.dataDiv {
+    justify-content: center;
+}
+
+body,
+html {
+    height: 100%;
+}

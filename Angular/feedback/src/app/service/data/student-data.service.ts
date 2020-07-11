@@ -8,6 +8,7 @@ import { Teacher } from 'src/app/student/student.component';
 })
 export class StudentDataService {
 
+
   constructor(
 
    private http: HttpClient
@@ -15,13 +16,19 @@ export class StudentDataService {
   ) { }
 
 
-  getTeacherList()
+  getTeacherList(section,category)
   {
 
-    return this.http.get<Teacher>("http://localhost:8080/jpa/users/userlist/anurag");
+    return this.http.get<Teacher>(`http://localhost:8080/jpa/user/teacher/${section}/${category}`);
 
 
   }
+
+  submitReview(rating)
+  {
+    return this.http.post("http://localhost:8080/jpa/ratings", rating);
+  }
+
 
 
 

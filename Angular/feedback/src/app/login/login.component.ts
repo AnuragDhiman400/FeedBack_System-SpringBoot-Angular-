@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../service/authentication/auth.service';
 import { User } from '../admin/admin.component';
 import { AdminDataService } from '../service/data/admin-data.service';
-import * as jwt_decode from "jwt-decode";
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 interface Role {
   value: string;
@@ -23,6 +24,8 @@ export class SelectOverviewExample {
   styleUrls: ['./login.component.css']
 })
 
+
+
 export class LoginComponent implements OnInit {
 
   hide = true;
@@ -36,7 +39,7 @@ export class LoginComponent implements OnInit {
   datasource : User[]
   user: User
   user_id: number
-
+  durationInSeconds = 5;
   roles: Role[] = [
     {value: 'admin', viewValue: 'Admin'},
     {value: 'student', viewValue: 'Student'},
@@ -47,66 +50,42 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private userService:AdminDataService,
-    private auth:AuthService
+    private auth:AuthService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
   }
 
-
-  // isHomeRoute() {
-
-  //   if (this.router.url === '/')
-
-  //     return false;
-
-
-  //   return true;
-
-
-  // }
+  openSnackBar(message: string, action: string,) {
+    this._snackBar.open(message,action,{duration: 2000,});
+  }
 
   basicAuth()
   {
     console.log('works');
+    console.log(this.username,this.password, this.selectedRole);
 
-    this.auth.JWTAuth(this.username, this.password)
+    this.auth.JWTAuth(this.username, this.password, this.selectedRole)
     .subscribe(
       
 
       data=> {this.datasource = data
-        console.log(this.username,this.password)
-       
-        console.log(data.token);
-      console.log('Decodeed');
-      let usernameJWT = jwt_decode(data.token);
-      console.log(usernameJWT);
+        console.log('This is handle list',data);
+        
 
-     this.userService.getUserByusername(usernameJWT.sub).subscribe(
-        data => { this.user = data 
-        console.log(this.user);
-
-        if(this.user.category === 'admin')
+       if(data.UserData.category === 'teacher')
         {
-          this.router.navigate(['admin']); 
-        }
-        else if(this.user.category === 'student')
+          
+          this.teacherSideList(data.UserData.section, data.UserData.category, data.UserData.username);
+          
+         //this.ratingList(data.UserData.username);
+       }
+        else if(data.UserData.category === 'student')
         {
-          this.router.navigate(['student']); 
+         this.studentSideList(data.UserData.section, data.UserData.category);
+         
         }
-        else if(this.user.category === 'teacher')
-        {
-          this.router.navigate(['teacher']); 
-        }
-        else{
-          sessionStorage.removeItem(AUTHENTICATED_USER);
-          sessionStorage.removeItem(TOKEN);
-        }
-
-        }
-      );
-
-  
 
       },
     error=>
@@ -117,6 +96,27 @@ this.invalidLogin = true
     })
     
       
+
+  }
+
+  ratingList(username)
+  {
+    this.router.navigate(['chart', username]);
+  }
+
+  teacherSideList(section,category, username)
+  {
+    console.log(section,category);
+    this.router.navigate(['teacher',section,category,username]);
+    this.openSnackBar('Welcome: '+this.username,'');
+
+  }
+
+  studentSideList(section,category)
+  {
+    console.log(section,category);
+    this.router.navigate(['student',section,category]);
+    this.openSnackBar('Welcome: '+this.username,'');
 
   }
 
