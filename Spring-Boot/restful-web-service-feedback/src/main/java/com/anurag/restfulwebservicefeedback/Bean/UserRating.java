@@ -20,11 +20,13 @@ public class UserRating {
 	private int question3;
 	private int question4;
 	private int question5;
+	private String review;
+	private String section;
 	
 	protected UserRating() {}
 
 	public UserRating(Long rating_id, String username, int question1, int question2, int question3, int question4,
-			int question5) {
+			int question5, String review, String section) {
 		super();
 		this.rating_id = rating_id;
 		this.username = username;
@@ -33,6 +35,8 @@ public class UserRating {
 		this.question3 = question3;
 		this.question4 = question4;
 		this.question5 = question5;
+		this.review = review;
+		this.section = section;
 	}
 
 	public Long getRating_id() {
@@ -91,52 +95,21 @@ public class UserRating {
 		this.question5 = question5;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + question1;
-		result = prime * result + question2;
-		result = prime * result + question3;
-		result = prime * result + question4;
-		result = prime * result + question5;
-		result = prime * result + ((rating_id == null) ? 0 : rating_id.hashCode());
-		result = prime * result + ((username == null) ? 0 : username.hashCode());
-		return result;
+	public String getReview() {
+		return review;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		UserRating other = (UserRating) obj;
-		if (question1 != other.question1)
-			return false;
-		if (question2 != other.question2)
-			return false;
-		if (question3 != other.question3)
-			return false;
-		if (question4 != other.question4)
-			return false;
-		if (question5 != other.question5)
-			return false;
-		if (rating_id == null) {
-			if (other.rating_id != null)
-				return false;
-		} else if (!rating_id.equals(other.rating_id))
-			return false;
-		if (username == null) {
-			if (other.username != null)
-				return false;
-		} else if (!username.equals(other.username))
-			return false;
-		return true;
+	public void setReview(String review) {
+		this.review = review;
 	}
-	
+
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
 	
 
 }
