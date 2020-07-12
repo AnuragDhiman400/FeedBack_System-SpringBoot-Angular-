@@ -3,12 +3,11 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "node server.js",
+        "start": "ng serve",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e",
-        "postinstall": "ng build --aot --prod"
+        "e2e": "ng e2e"
     },
     "private": true,
     "dependencies": {
@@ -26,7 +25,6 @@
         "@ng-bootstrap/ng-bootstrap": "^6.1.0",
         "bootstrap": "^4.4.0",
         "chart.js": "^2.9.3",
-        "express": "^4.17.1",
         "jwt-decode": "^2.2.0",
         "rxjs": "~6.5.4",
         "tslib": "^1.10.0",
@@ -52,9 +50,5 @@
         "ts-node": "~8.3.0",
         "tslint": "~5.18.0",
         "typescript": "~3.7.5"
-    },
-    "engines": {
-        "node": "~12.16.1",
-        "npm": "~6.13.4"
     }
 }

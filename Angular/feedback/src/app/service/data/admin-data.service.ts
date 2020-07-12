@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/admin/admin.component';
+import { API_URL } from 'app.const';
 
 
 @Injectable({
@@ -18,14 +19,14 @@ export class AdminDataService {
   retrieveAllList()
 {
 
-  return this.http.get<User[]>("http://localhost:8080/jpa/users/");
+  return this.http.get<User[]>(`${API_URL}/jpa/users/`);
 
 }
 
 deleteUser(user_id)
 {
 
-  return this.http.delete(`http://localhost:8080/jpa/users/${user_id}`);
+  return this.http.delete(`${API_URL}/jpa/users/${user_id}`);
 
 }
 
@@ -33,7 +34,7 @@ deleteUser(user_id)
 getUser(user_id)
 {
 
-  return this.http.get<User>(`http://localhost:8080/jpa/users/${user_id}`);
+  return this.http.get<User>(`${API_URL}/jpa/users/${user_id}`);
 
 }
 
@@ -41,21 +42,21 @@ getUser(user_id)
 getUserByusername(username)
 {
 
-  return this.http.get<User>(`http://localhost:8080/jpa/user/${username}`);
+  return this.http.get<User>(`${API_URL}/jpa/user/${username}`);
 
 }
 
 updateUser(user_id, user)
 {
 
-  return this.http.put<User>(`http://localhost:8080/jpa/users/${user_id}`,user);
+  return this.http.put<User>(`${API_URL}/jpa/users/${user_id}`,user);
 
 }
 
 addNewUser(user)
 {
 
-  return this.http.post("http://localhost:8080/jpa/users/newuser", user);
+  return this.http.post(`${API_URL}/jpa/users/newuser`, user);
 
 }
 
