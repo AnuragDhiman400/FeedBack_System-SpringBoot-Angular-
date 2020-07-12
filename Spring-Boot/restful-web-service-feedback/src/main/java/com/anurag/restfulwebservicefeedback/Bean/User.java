@@ -29,14 +29,13 @@ public class User {
 	private String password;
 	private String category;
 	private String section;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
-	
 
 	protected User() {
 		
 	}
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
 
 	public User(User users) {
@@ -47,7 +46,6 @@ public class User {
 		this.password = users.password;
 		this.category = users.category;
 		this.section = users.section;
-		this.roles = users.getRoles();
 	}
 
 	public Long getUser_id() {
