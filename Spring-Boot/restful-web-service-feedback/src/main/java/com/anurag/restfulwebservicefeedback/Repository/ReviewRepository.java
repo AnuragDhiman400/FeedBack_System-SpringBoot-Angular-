@@ -14,8 +14,8 @@ public interface ReviewRepository extends JpaRepository<UserRating, Long> {
 //	@Query("select u.username from User u where u.section=?1 and u.category='teacher'")
 //	List<String> findAllUsernames(String section, String category);
 //	
-	@Query("select r from UserRating r where r.username=?1")
-	List<UserRating> findRatings(String username);
+	@Query("select r from UserRating r where r.username=?1 and r.section=?2")
+	List<UserRating> findRatings(String username, String section);
 	
 
 
