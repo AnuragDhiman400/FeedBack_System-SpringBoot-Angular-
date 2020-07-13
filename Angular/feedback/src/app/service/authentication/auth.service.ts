@@ -63,12 +63,8 @@ export class AuthService {
           sessionStorage.setItem(AUTHENTICATED_USER,username);
           sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
           return data;
-
-          
-
         }
-      )
-  
+        )
     );
    
     //console.log("Execute the Hello world Bean service")
