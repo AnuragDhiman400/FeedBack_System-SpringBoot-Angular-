@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/authentication/auth.service';
+import { User } from '../admin/admin.component';
+import { AdminDataService } from '../service/data/admin-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 interface Role {
   value: string;
@@ -8,6 +12,8 @@ interface Role {
 }
 
 
+export const AUTHENTICATED_USER='authenticateUser'
+export const TOKEN='token'
 export class SelectOverviewExample {
 
 }
@@ -17,6 +23,8 @@ export class SelectOverviewExample {
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
 
 export class LoginComponent implements OnInit {
 
@@ -28,7 +36,10 @@ export class LoginComponent implements OnInit {
   email: string=''
   invalidLogin = false
   errorMessage = 'Invalid User'
-
+  datasource : User[]
+  user: User
+  user_id: number
+  durationInSeconds = 5;
   roles: Role[] = [
     {value: 'admin', viewValue: 'Admin'},
     {value: 'student', viewValue: 'Student'},
@@ -38,49 +49,78 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private auth:AuthService
+    private userService:AdminDataService,
+    private auth:AuthService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
   }
 
-
-  isHomeRoute() {
-
-    if (this.router.url === '/')
-
-      return false;
-
-
-    return true;
-
-
+  openSnackBar(message: string, action: string,) {
+    this._snackBar.open(message,action,{duration: 2000,});
   }
 
   basicAuth()
   {
     console.log('works');
+    console.log(this.username,this.password, this.selectedRole);
 
-    this.auth.authenticateBasicAuth(this.username, this.password)
+    this.auth.JWTAuth(this.username, this.password, this.selectedRole)
     .subscribe(
+      
 
-      data=> {
-        console.log(data)
-        console.log(this.username,this.password)
-        this.router.navigate(['admin']);
+      data=> {this.datasource = data
+        console.log('This is handle list',data);
+        
 
-        this.invalidLogin = false
+       if(data.UserData.category === 'teacher')
+        {
+          
+          this.teacherSideList(data.UserData.section, data.UserData.category, data.UserData.username);
+          
+         //this.ratingList(data.UserData.username);
+       }
+        else if(data.UserData.category === 'student')
+        {
+         this.studentSideList(data.UserData.section, data.UserData.category);
+         
+        }
+
       },
     error=>
     {
 console.log(error)
-console.log("errro" +this.username,this.password)
+console.log("errror" +this.username,this.password)
 this.invalidLogin = true
     })
     
       
 
   }
+
+  ratingList(username)
+  {
+    this.router.navigate(['chart', username]);
+  }
+
+  teacherSideList(section,category, username)
+  {
+    console.log(section,category);
+    this.router.navigate(['teacher',section,category,username]);
+    this.openSnackBar('Welcome: '+this.username,'');
+
+  }
+
+  studentSideList(section,category)
+  {
+    console.log(section,category);
+    this.router.navigate(['student',section,category]);
+    this.openSnackBar('Welcome: '+this.username,'');
+
+  }
+
+
 
   authentication()
   {

@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
     <a mat-raised-button routerLink="/">Feedback System</a>
     <div class="spacer"></div>
-    <a mat-button routerLink="/login">Login</a>
+    <a mat-button *ngIf="!auth.isUserLoggedIn()" routerLink="/login">Login</a>
+
+    <a mat-button *ngIf="auth.isUserLoggedIn()" routerLink="/logout">Logout</a>
 
 </mat-toolbar>

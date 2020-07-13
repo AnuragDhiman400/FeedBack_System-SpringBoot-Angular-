@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,16 @@ import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { LogoutComponent } from './logout/logout.component';
+import { HttpIntercepterService } from './service/http/http-intercepter.service';
+// import { ChartComponent } from './chart/chart.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StarComponent } from './star/star.component';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+
+
 
 
 
@@ -38,7 +48,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     AdminComponent,
     TeacherComponent,
     StudentComponent,
-    UserComponent
+    UserComponent,
+    LogoutComponent,
+    // ChartComponent,
+    StarComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -58,10 +72,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatListModule,
     MatTabsModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    NgbModule,
+    MatDividerModule,
+    MatSnackBarModule
     
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

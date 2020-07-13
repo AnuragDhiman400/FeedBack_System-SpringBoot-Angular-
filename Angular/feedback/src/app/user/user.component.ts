@@ -46,6 +46,7 @@ export class UserComponent implements OnInit {
 
   updateUser() {
 
+    console.log(this.user);
     //create a new user
     if (this.user_id == -1) {
 

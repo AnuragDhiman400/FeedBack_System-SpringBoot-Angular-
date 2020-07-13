@@ -1,51 +1,126 @@
 <div class="space">
 </div>
-<mat-toolbar color="primary">
 
+<mat-toolbar color="primary">
 
     <div class="sub-menu">
 
-        <Span>{{message}}</Span>
+        <Span>Student Dashboard</Span>
     </div>
-
-
-
-
 </mat-toolbar>
+
 <div class="space">
 </div>
-<div class="head_text">
-    <h1>List of Teachers</h1>
+
+<div class="dropdown">
+    <h2>Teachers of Section {{section}}</h2>
+    <mat-form-field>
+        <mat-label>Select Teacher For Review</mat-label>
+        <mat-select [(value)]="rating.username" [(ngModel)]="rating.username" (ngModelChange)="select($event)">
+
+            <mat-option>Select Teacher For Review</mat-option>
+            <mat-option [(value)]="list.username" *ngFor="let list of teacherList">
+                {{list.username}}
+            </mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+
 </div>
+<div class="space">
+</div>
+<div *ngIf="dropSelected">
+    <div class="dropdown">
+        <h2>Please give ratings to complete Review</h2>
 
-<div class="tab">
-
-    <div class="space">
     </div>
-    <mat-accordion>
-        <mat-expansion-panel *ngFor="let list of teacherList">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{list.username}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    Type your name and age
-                </mat-panel-description>
-            </mat-expansion-panel-header>
+    <mat-card>
+        <form class="example-form">
+            <div class="container">
+                <h3>1. Your Class Teacher is caring and respects the students</h3>
 
-            <mat-form-field>
-                <mat-label>First name</mat-label>
-                <input matInput>
-            </mat-form-field>
+                <!-- This is rating code -->
 
-            <mat-form-field>
-                <mat-label>Age</mat-label>
-                <input matInput type="number" min="1">
-            </mat-form-field>
-        </mat-expansion-panel>
 
-    </mat-accordion>
+                <!-- <div id="css-script-menu">
+                        <div class="css-script-center">
 
-</div>
-<div class="space">
+                            <div class="css-script-ads">
+                                <script type="text/javascript">
+                                    <!--
+                                    google_ad_client = "ca-pub-2783044520727903";
+                                    /* CSSScript Demo Page */
+                                    google_ad_slot = "3025259193";
+                                    google_ad_width = 728;
+                                    google_ad_height = 90;
+                                   
+                                </script>
+                                <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                                </script>
+                            </div>
+                            <div class="css-script-clear"></div>
+                        </div>
+                    </div> -->
+
+                <!-- This is rating code -->
+                <ngb-rating [(rate)]="rating.question1" [(ngModel)]="rating.question1" name="question1" (click)="getrating()"></ngb-rating>
+                <pre>Rate: <b>{{rating.question1}}</b></pre>
+                <!-- This is rating code -->
+
+            </div>
+            <!-- <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Your Full Name" value="" [(ngModel)]="username" #description="ngModel" name="username">
+            </mat-form-field> -->
+
+            <div class="container">
+                <h3>2. Your Class Teacher has a sense of ownership and responsibility</h3>
+
+                <!-- This is rating code -->
+                <ngb-rating [(rate)]="rating.question2" [(ngModel)]="rating.question2" name="question2" (click)="getrating()"></ngb-rating>
+                <pre>Rate: <b>{{rating.question2}}</b></pre>
+                <!-- This is rating code -->
+
+            </div>
+            <div class="container">
+                <h3>3. Your Class Teacher treats each with respect</h3>
+
+                <!-- This is rating code -->
+                <ngb-rating [(rate)]="rating.question3" [(ngModel)]="rating.question3" name="question3" (click)="getrating()"></ngb-rating>
+                <pre>Rate: <b>{{rating.question3}}</b></pre>
+                <!-- This is rating code -->
+
+            </div>
+            <div class="container">
+                <h3>4. Your Class Teacher collectively brainstorms on resolutions to provide effective learning</h3>
+
+                <!-- This is rating code -->
+                <ngb-rating [(rate)]="rating.question4" [(ngModel)]="rating.question4" name="question4" (click)="getrating()"></ngb-rating>
+                <pre>Rate: <b>{{rating.question4}}</b></pre>
+                <!-- This is rating code -->
+
+            </div>
+            <div class="container">
+                <h3>5. Your Class Teacher and students are committed to school values</h3>
+
+                <!-- This is rating code -->
+                <ngb-rating [(rate)]="rating.question5" [(ngModel)]="rating.question5" name="question5" (click)="getrating()"></ngb-rating>
+                <pre>Rate: <b>{{rating.question5}}</b></pre>
+                <!-- This is rating code -->
+
+            </div>
+            <div class="feedbackTextArea">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Write your Review Here</mat-label>
+                    <textarea [(ngModel)]="rating.review" name="review" matInput placeholder="Ex. My Teacher is awesome..."></textarea>
+                </mat-form-field>
+            </div>
+            <div class="container">
+                <button type="submit" mat-raised-button color="primary" (click)="submitReview()" class="login">Submit Servey</button>
+            </div>
+
+        </form>
+    </mat-card>
 </div>

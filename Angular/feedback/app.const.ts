@@ -1,0 +1,1 @@
+export const API_URL= "https://springboot-rest-feedback.herokuapp.com"

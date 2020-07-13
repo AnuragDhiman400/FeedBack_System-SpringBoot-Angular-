@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { API_URL } from 'app.const';
+import { AdminDataService } from '../data/admin-data.service';
+import { User } from 'src/app/admin/admin.component';
+import { Router } from '@angular/router';
 
 export const AUTHENTICATED_USER='authenticateUser'
 export const TOKEN='token'
@@ -10,10 +14,67 @@ export const TOKEN='token'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  datasource : User[]
+ inValid:boolean
+
+  constructor(private http:HttpClient,
+    private router: Router,
+    private userService:AdminDataService) { }
 
 
+  JWTAuth(username, password, category)
+  {
+   
   
+    return this.http.post<any>(
+    `${API_URL}/authenticate`,{
+      username,
+      password,
+      category
+    }).pipe(
+  
+      map(
+        data => {
+
+          this.datasource = data;
+          
+          if(data.UserData.category === 'admin')
+          {
+            console.log('This is coming from auth.service');
+            console.log(this.datasource);
+            this.router.navigate(['admin']);
+          }
+
+          if(data.UserData.category === 'teacher')
+          {
+            console.log('This is coming from teacher service');
+            console.log(this.datasource);
+            this.router.navigate(['teacher']);
+          }
+
+          
+          if(data.UserData.category === 'student')
+          {
+            console.log('This is coming from student service');
+            console.log(this.datasource);
+            this.router.navigate(['student']);
+          }
+          
+          sessionStorage.setItem(AUTHENTICATED_USER,username);
+          sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
+          return data;
+
+          
+
+        }
+      )
+  
+    );
+   
+    //console.log("Execute the Hello world Bean service")
+  }
+
+
 
   authenticateBasicAuth(username,password)
   {
@@ -39,12 +100,14 @@ export class AuthService {
   authenticate(role,username, password,email)
   {
 
+    console.log('before'+this.isUserLoggedIn());
     if(role==='admin' && username === 'anurag' && password === '123' && email==='a@gmail.com')
     {
 
+      
       console.log('user logged in');
-
       sessionStorage.setItem(AUTHENTICATED_USER,username);
+      console.log('after'+this.isUserLoggedIn());
       return true;
 
     }
@@ -68,13 +131,14 @@ export class AuthService {
   isUserLoggedIn()
   {
     let user = sessionStorage.getItem(AUTHENTICATED_USER);
-    return!(user === null);
+    return !(user === null);
   }
 
 
   logout()
   {
     sessionStorage.removeItem(AUTHENTICATED_USER);
+  sessionStorage.removeItem(TOKEN);
   }
 
 
