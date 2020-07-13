@@ -43,18 +43,18 @@ public class StudentController {
 	
 
 	
-	@PostMapping("/jpa/student/feedback")
-	public ResponseEntity<Void> newUser(@RequestBody Review review)
-	{
-		
-		Review updatedUser = reviewRepository.save(review);
-
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(updatedUser.getId()).toUri();
-		
-		return ResponseEntity.created(uri).build();
-
-	}
+//	@PostMapping("/jpa/student/feedback")
+//	public ResponseEntity<Void> newUser(@RequestBody Review review)
+//	{
+//		
+//		Review updatedUser = reviewRepository.save(review);
+//
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+//				.path("/{id}").buildAndExpand(updatedUser.getId()).toUri();
+//		
+//		return ResponseEntity.created(uri).build();
+//
+//	}
 	
 	
 
