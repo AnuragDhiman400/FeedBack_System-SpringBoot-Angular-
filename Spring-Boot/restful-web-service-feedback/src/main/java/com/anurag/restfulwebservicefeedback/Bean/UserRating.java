@@ -14,7 +14,6 @@ public class UserRating {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long rating_id;
 
-	
 	private String username;
 	private int question1;
 	private int question2;
