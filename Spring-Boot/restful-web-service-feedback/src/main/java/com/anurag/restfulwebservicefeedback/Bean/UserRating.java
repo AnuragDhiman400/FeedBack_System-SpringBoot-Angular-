@@ -16,7 +16,6 @@ public class UserRating {
 
 	
 	
-	
 	private String username;
 	private int question1;
 	private int question2;
