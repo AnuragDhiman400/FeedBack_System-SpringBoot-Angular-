@@ -15,7 +15,6 @@ public class UserRating {
     private Long rating_id;
 
 	
-	
 	private String username;
 	private int question1;
 	private int question2;
